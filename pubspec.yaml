@@ -39,6 +39,9 @@ dependencies:
   #State management package
   provider: ^6.1.1
 
+  #State management package
+  flutter_riverpod: ^2.4.10
+
   #Dependency injection package
   get_it: ^7.6.7
 

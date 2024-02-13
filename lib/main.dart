@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_flutter_clean_arch/data/utils/change_notifiers.dart';
 import 'package:whatsapp_flutter_clean_arch/data/utils/router.dart';
@@ -17,13 +18,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: changeNotifiers,
-      child: MaterialApp.router(
-        title: 'Whatsapp',
-        debugShowCheckedModeBanner: false,
-        theme: WhatsAppTheme.themeData,
-        routeInformationParser: router.routeInformationParser,
-        routerDelegate: router.routerDelegate,
-        routeInformationProvider: router.routeInformationProvider,
+      child: ProviderScope(
+        child: MaterialApp.router(
+          title: 'Whatsapp',
+          debugShowCheckedModeBanner: false,
+          theme: WhatsAppTheme.themeData,
+          routeInformationParser: router.routeInformationParser,
+          routerDelegate: router.routerDelegate,
+          routeInformationProvider: router.routeInformationProvider,
+        ),
       ),
     );
   }
