@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsapp_flutter_clean_arch/presentation/di/dependency_injection.dart';
@@ -39,10 +40,12 @@ class _ChatsPageState extends State<ChatsPage>
                   subtitle: Text(item.recentMessage!),
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(27.5),
-                    child: Image.network(
-                      "https://picsum.photos/id/237/200/300",
+                    child: CachedNetworkImage(
                       width: 45,
                       height: 45,
+                      imageUrl: "https://picsum.photos/id/237/200/300",
+                      placeholder: (context, url) => const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => const Icon(Icons.error),
                       fit: BoxFit.cover,
                     ),
                   ),

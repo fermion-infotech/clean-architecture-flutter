@@ -42,6 +42,9 @@ dependencies:
   #State management package
   flutter_riverpod: ^2.4.10
 
+  #State management package
+  flutter_bloc: ^8.1.4
+
   #Dependency injection package
   get_it: ^7.6.7
 

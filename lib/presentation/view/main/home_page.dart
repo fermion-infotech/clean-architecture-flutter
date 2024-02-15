@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whatsapp_flutter_clean_arch/data/utils/whatsapp_theme.dart';
+import 'package:whatsapp_flutter_clean_arch/presentation/view/main/calls_page.dart';
 import 'package:whatsapp_flutter_clean_arch/presentation/view/main/chats_page.dart';
 import 'package:whatsapp_flutter_clean_arch/presentation/view/main/status_page.dart';
+import 'package:whatsapp_flutter_clean_arch/presentation/viewmodel/main/main_3_view_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,12 +21,13 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: homePageAppBar(),
-        body: const SafeArea(
+        body: SafeArea(
           child: TabBarView(
             children: [
-              ChatsPage(),
-              StatusPage(),
-              Text("Hello world3"),
+              const ChatsPage(),
+              const StatusPage(),
+              BlocProvider(create: (_)=> CallsCubit(),child: const CallsPage(),)
+              ,
             ],
           ),
         ),
