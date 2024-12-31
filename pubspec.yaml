@@ -45,6 +45,9 @@ dependencies:
   #State management package
   flutter_bloc: ^8.1.4
 
+  #State management package
+  june: ^1.0.0+1
+
   #Dependency injection package
   get_it: ^7.6.7
 
